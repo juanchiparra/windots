@@ -1,0 +1,223 @@
+general:
+    config_reload_commands: []
+
+    focus_follows_cursor: false
+    toggle_workspace_on_refocus: false
+
+    cursor_jump:
+        enabled: true
+        trigger: "monitor_focus"
+
+    hide_method: "cloak"
+    show_all_in_taskbar: false
+
+gaps:
+    scale_with_dpi: true
+    inner_gap: "8px"
+    outer_gap:
+        top: "12px"
+        right: "8px"
+        bottom: "8px"
+        left: "8px"
+
+window_effects:
+    focused_window:
+        border:
+            enabled: true
+            color: "#8dbcff"
+        hide_title_bar:
+            enabled: false
+        corner_style:
+            enabled: false
+            style: "square"
+        transparency:
+            enabled: false
+            opacity: "95%"
+
+    other_windows:
+        border:
+            enabled: true
+            color: "#333333"
+        hide_title_bar:
+            enabled: false
+        corner_style:
+            enabled: false
+            style: "square"
+        transparency:
+            enabled: false
+            opacity: "0%"
+
+window_behavior:
+    initial_state: "tiling"
+    state_defaults:
+        floating:
+            centered: true
+            shown_on_top: false
+        fullscreen:
+            maximized: false
+            shown_on_top: false
+
+workspaces:
+    - name: "1"
+      display_name: "W"
+      bind_to_monitor: 0
+    - name: "2"
+      display_name: "P"
+      bind_to_monitor: 1
+    - name: "3"
+      display_name: "M"
+      bind_to_monitor: 1
+    - name: "4"
+    - name: "5"
+    - name: "6"
+    - name: "7"
+    - name: "8"
+    - name: "9"
+
+window_rules:
+    - commands: ["ignore"]
+      match:
+          - window_process: { equals: "python" }
+          - window_title: { regex: "yasb" }
+
+          - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
+            window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
+
+          - window_process: { equals: "PowerToys" }
+            window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
+          - window_title: { equals: "Command Palette" }
+            window_class: { equals: "WinUIDesktopWin32WindowClass" }
+          - window_process: { equals: "PowerToys" }
+            window_title: { regex: ".*? - Peek" }
+
+    # Workspace assignments
+    - commands: ["move --workspace 1"]
+      match:
+          - window_process: { equals: "WindowsTerminal" }
+
+    - commands: ["move --workspace 2"]
+      match:
+          - window_process: { equals: "zen" }
+
+    - commands: ["move --workspace 3"]
+      match:
+          - window_process: { equals: "Spotify" }
+          - window_process: { equals: "Obsidian" }
+
+keybindings:
+    # Change window focus
+    - commands: ["focus --direction left"]
+      bindings: ["alt+h", "alt+left"]
+    - commands: ["focus --direction right"]
+      bindings: ["alt+l", "alt+right"]
+    - commands: ["focus --direction up"]
+      bindings: ["alt+k", "alt+up"]
+    - commands: ["focus --direction down"]
+      bindings: ["alt+j", "alt+down"]
+
+    # Move windows
+    - commands: ["move --direction left"]
+      bindings: ["alt+shift+h", "alt+shift+left"]
+    - commands: ["move --direction right"]
+      bindings: ["alt+shift+l", "alt+shift+right"]
+    - commands: ["move --direction up"]
+      bindings: ["alt+shift+k", "alt+shift+up"]
+    - commands: ["move --direction down"]
+      bindings: ["alt+shift+j", "alt+shift+down"]
+
+    # Resize windows
+    - commands: ["resize --width -4%"]
+      bindings: ["alt+u"]
+    - commands: ["resize --width +4%"]
+      bindings: ["alt+p"]
+    - commands: ["resize --height +4%"]
+      bindings: ["alt+o"]
+    - commands: ["resize --height -4%"]
+      bindings: ["alt+i"]
+
+    - commands: ["toggle-floating --centered"]
+      bindings: ["alt+shift+space"]
+
+    - commands: ["toggle-tiling"]
+      bindings: ["alt+t"]
+
+    - commands: ["toggle-fullscreen"]
+      bindings: ["alt+f"]
+
+    - commands: ["toggle-minimized"]
+      bindings: ["alt+m"]
+
+    - commands: ["close"]
+      bindings: ["alt+shift+q"]
+
+    - commands: ["wm-reload-config"]
+      bindings: ["alt+shift+r"]
+
+    - commands: ["wm-exit"]
+      bindings: ["alt+shift+e"]
+
+    # Focus workspaces
+    - commands: ["focus --workspace 1"]
+      bindings: ["alt+1"]
+    - commands: ["focus --workspace 2"]
+      bindings: ["alt+2"]
+    - commands: ["focus --workspace 3"]
+      bindings: ["alt+3"]
+    - commands: ["focus --workspace 4"]
+      bindings: ["alt+4"]
+    - commands: ["focus --workspace 5"]
+      bindings: ["alt+5"]
+    - commands: ["focus --workspace 6"]
+      bindings: ["alt+6"]
+    - commands: ["focus --workspace 7"]
+      bindings: ["alt+7"]
+    - commands: ["focus --workspace 8"]
+      bindings: ["alt+8"]
+    - commands: ["focus --workspace 9"]
+      bindings: ["alt+9"]
+
+    # Navigate between workspaces
+    - commands: ["focus --next-active-workspace"]
+      bindings: ["alt+s"]
+    - commands: ["focus --prev-active-workspace"]
+      bindings: ["alt+a"]
+
+    # Move workspaces between monitors
+    - commands: ["move-workspace --direction left"]
+      bindings: ["alt+shift+a"]
+    - commands: ["move-workspace --direction right"]
+      bindings: ["alt+shift+f"]
+    - commands: ["move-workspace --direction up"]
+      bindings: ["alt+shift+d"]
+    - commands: ["move-workspace --direction down"]
+      bindings: ["alt+shift+s"]
+
+    # Send window to a specific workspace
+    - commands: ["move --workspace 1", "focus --workspace 1"]
+      bindings: ["alt+shift+1"]
+    - commands: ["move --workspace 2", "focus --workspace 2"]
+      bindings: ["alt+shift+2"]
+    - commands: ["move --workspace 3", "focus --workspace 3"]
+      bindings: ["alt+shift+3"]
+    - commands: ["move --workspace 4", "focus --workspace 4"]
+      bindings: ["alt+shift+4"]
+    - commands: ["move --workspace 5", "focus --workspace 5"]
+      bindings: ["alt+shift+5"]
+    - commands: ["move --workspace 6", "focus --workspace 6"]
+      bindings: ["alt+shift+6"]
+    - commands: ["move --workspace 7", "focus --workspace 7"]
+      bindings: ["alt+shift+7"]
+    - commands: ["move --workspace 8", "focus --workspace 8"]
+      bindings: ["alt+shift+8"]
+    - commands: ["move --workspace 9", "focus --workspace 9"]
+      bindings: ["alt+shift+9"]
+
+    # Quick app launchers
+    - commands: ["shell-exec wt"]
+      bindings: ["alt+enter"]
+    - commands: ["shell-exec cmd.exe /c start spotify:"]
+      bindings: ["alt+s"]
+    - commands: ["shell-exec zen"]
+      bindings: ["alt+w"]
+    - commands: ["shell-exec obsidian"]
+      bindings: ["alt+n"]
