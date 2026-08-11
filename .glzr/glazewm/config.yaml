@@ -68,6 +68,7 @@ workspaces:
       display_name: "M"
       bind_to_monitor: 1
     - name: "4"
+      bind_to_monitor: 1
     - name: "5"
     - name: "6"
     - name: "7"
@@ -98,6 +99,7 @@ window_rules:
     - commands: ["move --workspace 2"]
       match:
           - window_process: { equals: "zen" }
+          - window_process: { equals: "wezterm-gui" }
 
     - commands: ["move --workspace 3"]
       match:
