@@ -116,15 +116,3 @@ widgets:
                 direction: "down"
                 offset_top: 6
                 offset_left: 0
-
-    power_menu:
-        type: yasb.power_menu.PowerMenuWidget
-        options:
-            label: "<span class='icon'>\uE7E8</span>"
-            menu_style: "popup"
-            buttons:
-                lock: ["\uE72E", "Lock"]
-                sleep: ["\uE708", "Sleep"]
-                restart: ["\uE777", "Restart"]
-                shutdown: ["\uE7E8", "Shutdown"]
-                cancel: ["\uE711", "Cancel"]
