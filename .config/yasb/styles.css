@@ -506,7 +506,6 @@
     font-size: 12px;
     font-family: var(--system-font);
     color: var(--yasb-fg-muted);
-    qproperty-text: "•••";
     padding-bottom: 2px;
     letter-spacing: 1px;
 }

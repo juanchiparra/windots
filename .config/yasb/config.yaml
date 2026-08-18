@@ -99,10 +99,23 @@ widgets:
     systray:
         type: yasb.systray.SystrayWidget
         options:
-            icon_size: 14
-            show_unpinned: false
-            show_in_popup: false
-            use_hook: false
+            class_name: "systray"
+            label_collapsed: "•••"
+            label_expanded: "• • •"
+            label_position: "right"
+            icon_size: 16
+            pin_click_modifier: "alt"
+            show_in_popup: true
+            icons_per_row: 4
+            popup:
+                blur: true
+                round_corners: true
+                round_corners_type: "normal"
+                border_color: None
+                alignment: "center"
+                direction: "down"
+                offset_top: 6
+                offset_left: 0
 
     power_menu:
         type: yasb.power_menu.PowerMenuWidget
