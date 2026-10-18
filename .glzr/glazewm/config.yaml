@@ -109,6 +109,7 @@ window_rules:
     - commands: ["move --workspace 4"]
       match:
           - window_process: { regex: "[Ss]team.*" }
+          - window_process: { regex: "Godot" }
 
 keybindings:
     # Change window focus
